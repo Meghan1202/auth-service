@@ -1,9 +1,7 @@
 const redis = require('redis');
 
-// const client = redis.createClient(6379);
-
 const client = redis.createClient({
-  host: 'redis-auth-v2',
+  host: 'redis-v1', // container name
   port: 6379,
 });
 

@@ -7,7 +7,8 @@ dotenv.config();
 const storeToken = (token, username) => {
   client.setex(token, process.env.ACCESS_TOKEN_EXPIRY_TIME, username, redis.print);
 };
-const retriveToken = (token) => {
+
+const retrieveToken = (token) => {
   const userData = client.getex(token, redis.print);
   if (userData === null) {
     throw new Error('Invalid User');
@@ -15,4 +16,4 @@ const retriveToken = (token) => {
   return userData;
 };
 
-module.exports = { storeToken, retriveToken };
+module.exports = { storeToken, retrieveToken };
