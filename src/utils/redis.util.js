@@ -15,12 +15,5 @@ const retrieveToken = (token) => new Promise((resolve, reject) => {
   });
 });
 
-// const retrieveToken = async (token) => {
-//   const userData = await client.getex(token, redis.print);
-//   if (userData === null) {
-//     throw new Error('Invalid User');
-//   }
-//   return userData;
-// };
 
-module.exports = { storeToken, retrieveToken };
+module.exports = { storeToken, retrieveToken};
