@@ -16,4 +16,8 @@ const retrieveToken = (token) => {
   return userData;
 };
 
-module.exports = { storeToken, retrieveToken };
+const deleteToken = (token) => {
+  client.DEL(token, redis.print);
+};
+
+module.exports = { storeToken, retrieveToken, deleteToken };
