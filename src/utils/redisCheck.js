@@ -1,4 +1,4 @@
-const redisUtils = require('./redis.utils');
+const redisUtils = require('./redis.util');
 
 const TOKEN = 'kjrnvnrtkknkjnkfgnkn';
 const USERNAME = 'Dwight';
