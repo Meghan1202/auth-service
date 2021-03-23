@@ -1,7 +1,7 @@
 const { loginHandler } = require('../login.handler');
 const service = require('../../services/login.service');
 
-describe('Health Handler', () => {
+describe('Login Handler', () => {
   let mockJson;
   let mockResponse;
   beforeEach(() => {
