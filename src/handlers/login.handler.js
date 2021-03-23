@@ -7,7 +7,7 @@ const loginHandler = async (req, res) => {
     const token = await loginService.loginUser(username, password);
     res.status(200).json({ token });
   } catch (error) {
-    if (error.message === 'not authenticated') {
+    if (error.message === 'Unauthenticated') {
       return res.status(401).send(error.message);
     }
     return res.status(500).send(error.message);
