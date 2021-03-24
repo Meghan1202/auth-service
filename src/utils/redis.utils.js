@@ -4,12 +4,13 @@ const { client } = require('./redis.client');
 
 dotenv.config();
 
-const storeToken = async (token, username) => {
-  await client.setex(token, process.env.ACCESS_TOKEN_EXPIRY_TIME, username, redis.print);
+const storeToken = (token, username) => {
+  client.setex(token, process.env.ACCESS_TOKEN_EXPIRY_TIME, username, redis.print);
 };
 
 const retrieveToken = (token) => new Promise((resolve, reject) => {
   client.get(token, (err, reply) => {
+    console.log('reply: ', reply);
     resolve(reply);
     if (err) reject(err);
   });

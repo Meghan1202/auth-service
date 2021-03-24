@@ -3,9 +3,14 @@ const redisUtils = require('../utils/redis.utils');
 
 const logoutHandler = async (req, res) => {
   try {
-    const { token } = req.body;
-    await redisUtils.deleteToken(token);
-    res.status(200).json({ message: 'logged out successfully ' });
+    const { token } = req.query;
+    const retrivedToken = await redisUtils.retrieveToken(token);
+    if (retrivedToken) {
+      await redisUtils.deleteToken(token);
+      res.status(200).json({ message: 'logged out successfully ' });
+    } else {
+      res.status(400).json({ message: 'user not found ' });
+    }
   } catch (error) {
     return res.status(500).send(error.message);
   }
