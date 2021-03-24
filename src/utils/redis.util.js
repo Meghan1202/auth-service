@@ -15,5 +15,4 @@ const retrieveToken = (token) => new Promise((resolve, reject) => {
   });
 });
 
-
-module.exports = { storeToken, retrieveToken};
+module.exports = { storeToken, retrieveToken };
