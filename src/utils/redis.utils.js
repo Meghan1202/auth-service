@@ -10,7 +10,6 @@ const storeToken = (token, username) => {
 
 const retrieveToken = (token) => new Promise((resolve, reject) => {
   client.get(token, (err, reply) => {
-    console.log('reply: ', reply);
     resolve(reply);
     if (err) reject(err);
   });

@@ -28,3 +28,11 @@ describe('store token function', () => {
     expect(spyOnSetex).toHaveBeenCalled();
   });
 });
+
+describe('delete token function', () => {
+  it('should delete the token', async () => {
+    const spyOnDel = jest.spyOn(client, 'DEL').mockImplementation((token, func) => 'ok');
+    await redisUtils.deleteToken('abc');
+    expect(spyOnDel).toHaveBeenCalled();
+  });
+});

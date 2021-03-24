@@ -1,9 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 const redisUtils = require('../utils/redis.utils');
 
 const logoutHandler = async (req, res) => {
   try {
-    const { token } = req.query;
+    const token = req.headers.authorization.split(' ')[1];
     const retrivedToken = await redisUtils.retrieveToken(token);
     if (retrivedToken) {
       await redisUtils.deleteToken(token);
